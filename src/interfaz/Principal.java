@@ -152,7 +152,7 @@ public class Principal extends javax.swing.JFrame {
         if (txtLongitud.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite la longitud", "Error", JOptionPane.ERROR_MESSAGE);
             txtLongitud.requestFocusInWindow();
-        } else if (txtLongitud.getText().trim().equals("0")) {
+        } else if (Integer.parseInt(txtLongitud.getText().trim())==0) {
             JOptionPane.showMessageDialog(this, "La longitud debe ser mayor que cero", "Error", JOptionPane.ERROR_MESSAGE);
             txtLongitud.requestFocusInWindow();
             txtLongitud.selectAll();
