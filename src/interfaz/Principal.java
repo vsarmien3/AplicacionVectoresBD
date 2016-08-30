@@ -185,7 +185,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdLlenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarActionPerformed
         double n;
-        int aux;
+        boolean sw=true;
+        int aux, res = 0;
+        
         for (int i = 0; i < v.length; i++) {
             do{
             aux = 1;    
@@ -199,13 +201,22 @@ public class Principal extends javax.swing.JFrame {
             }catch (NullPointerException e){
                 JOptionPane.showMessageDialog(this, "No es permitido salir","Error",JOptionPane.ERROR_MESSAGE);
                  aux=0;
+                 JOptionPane.showConfirmDialog(this,"¿Desea salir?","salir",JOptionPane.YES_NO_OPTION);
+                 if (res==0){
+                aux = 1;
+                i = v.length;
+                sw = false;
+                
+            }else{
+                     aux=0;
+                 }
             }
             }while(aux == 0);
         }
         cmdCrear.setEnabled(false);
         cmdLlenar.setEnabled(false);
         cmdLlenadoAutomatico.setEnabled(false);
-        cmdMostrar.setEnabled(true);
+        cmdMostrar.setEnabled(sw);
         cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenarActionPerformed
 
